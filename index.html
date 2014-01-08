@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
   <head>
     <meta charset='utf-8'>
@@ -95,4 +95,46 @@ $ git checkout gh-pages
 
     
   </body>
+</html>-->
+
+<!doctype html>
+<html ng-app="app">
+  <header>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+    <script language="javascript" type="text/javascript">
+      angular.module('app', []);
+      
+      //Whatever you put on the controller scope,
+      //will be availalble in the HTML element bound to the controller.
+      function MyController($scope){
+        $scope.newMessage = "Hi";
+        $scope.messages = []; 
+        $scope.User = "Yee Kai Boo("+Date()+") ";
+        new Date().getTime();
+        $scope.add = function(){
+          $scope.messages.push($scope.User+$scope.newMessage);
+        };
+      }
+    </script>
+  </header>
+  
+  <body ng-controller="MyController">
+  <p><font color = "blue" size = "6">TWITTA</font> &nbsp;&nbsp; HOME &nbsp;&nbsp;@CONNECT &nbsp;&nbsp;#DISCOVER&nbsp;&nbsp; <img src="http://www.gravatar.com/avatar/d9966a9ac7847629e86f8904d287b046.png" >YEE KAI BOO</p>--------------------------------------------------------<br>
+  <br><br>
+    TWIT HERE:<br>     
+    <input type="text" ng-model="newMessage" size ="40">
+    <input type="submit" ng-click="add()" value="TWIT IT">
+    <br><br><br><br>
+    TWITS: <br>
+    <p ng-repeat="message in messages">
+      {{message}}
+    </p>
+    
+   <!--<ul>
+      <li ng-repeat="message in messages">
+        {{message}}
+      </li>
+    </ul>-->
+  </body>
+  
 </html>
